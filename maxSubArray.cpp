@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        int curr_sum = 0, max_sum = 0;
+        int curr_sum = 0, max_sum = nums.at(0);
         for(int i = 0, size = nums.size(); i < size; i ++){
             if(curr_sum < 0) curr_sum = 0;
             curr_sum += nums.at(i);
