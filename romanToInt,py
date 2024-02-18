@@ -1,0 +1,16 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        roman_int_pairs = {'I' : 1, 'V' : 5, 'X' : 10, 'L' : 50, 'C' : 100, 'D' : 500, 'M' : 1000}
+        result, right = 0, len(s) - 1
+
+        while right > -1:
+            if right > 0 and roman_int_pairs[s[right]] > roman_int_pairs[s[right - 1]]:
+                result += roman_int_pairs[s[right]] - roman_int_pairs[s[right-1]]
+                right -= 2
+                continue
+
+            result += roman_int_pairs[s[right]]
+            right -= 1
+
+        return result
+        
